@@ -12,7 +12,8 @@ import { useEffect, useState } from 'react';
 import './EditSong.css';
 import { SongModel } from '../../models/SongModel';
 import { Genre } from '../../models/SongModel'
-export default function EditSong(prop: any): JSX.Element {
+import { propEdit } from '../../types/IProps';
+export default function EditSong({songsProp,editSong}:propEdit): JSX.Element {
   const { id } = useParams();
   const genreArr = ['POP', 'ROCK', 'CLASSICAL', 'RAP'];
   const navigate = useNavigate();
@@ -92,9 +93,9 @@ export default function EditSong(prop: any): JSX.Element {
           onChange={(val) => { setSong({ ...song, length: parseFloat(val.target.value) }); }}
         />
         <br></br>
-        <Button onClick={() => { prop.editSong(song, id); navigate('/songs') }} variant="outlined" size="small" >Edit Song</Button>
+        <Button onClick={() => { editSong(song, id); navigate('/songs') }} variant="outlined" size="small" >Edit Song</Button>
         <br></br>
-        <BackButton></BackButton>
+        <BackButton navigateTo='/'></BackButton>
       </div>
     </>
   );

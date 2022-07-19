@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import { SongModel } from "../../models/SongModel";
 import { useNavigate } from "react-router-dom";
-import { propRowTable } from "../../types/interfces";
+import { propRowTable } from "../../types/IProps";
 
 export default function RowTable({propSong ,deleteSong}:propRowTable)  {
     const navigate= useNavigate()

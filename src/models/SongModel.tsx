@@ -1,6 +1,6 @@
 
 export  type Genre='POP'| 'ROCK'|'CLASSICAL'| 'RAP'
-export type SongModel = {
+export interface SongModel  {
     id?: String,
     title: String,
     artist: String,

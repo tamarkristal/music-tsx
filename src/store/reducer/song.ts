@@ -20,10 +20,12 @@ export const songReducer = (state:redurcerSong = initialization, action: Action)
             return { ...state, listSong: [...state.listSong, action.payload] }
         case 'DELETE_SONG':
             return { ...state, listSong: state.listSong.filter((song: SongModel) => song.id !== action.payload) }
-            //TODO: מחיקה והוספה להחליף לעדכון
         case 'EDIT_SONG':
-             return { ...state, listSong: state.listSong.find((song:SongModel) => song.id == action.payload.id) }
-            
+            {
+            let index:number=state.listSong.findIndex((song: SongModel) => song.id == action.payload.id);
+            let arr:any=state.listSong;
+            arr[index]={...action.payload}
+            return {...state,listSong:state.listSong=[...arr]}}        
         default: return { ...state }
 
     }

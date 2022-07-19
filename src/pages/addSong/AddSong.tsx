@@ -82,7 +82,7 @@ export default function AddSong(prop:any): JSX.Element {
       <br></br> </div>
       <Button onClick={()=>{prop.addSongFunc(newSong);navigate('/songs')}} variant="outlined" size="small" >Add Song</Button>
       <br></br>
-      <BackButton></BackButton>
+      <BackButton navigateTo='/'></BackButton>
       </div>
     </>
   );

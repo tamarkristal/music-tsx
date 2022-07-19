@@ -14,16 +14,18 @@ import { useNavigate } from 'react-router-dom';
 import BackButton from '../../components/BackButton';
 import Welcome from '../../components/Welcome/Welcome';
 import './SongLandingPage.css'
-import { SongModel } from '../../models/SongModel';
+
 import RowTable from './RowTable';
-import { Props } from '../../types/interfces';
-export default function SongsLandingPage({songsProp,getAllSongs,deleteSong,getSongByArtist}: Props):JSX.Element {
+import { Props } from '../../types/IProps';
+import { SongModel } from '../../models/SongModel';
+export default function SongsLandingPage({songsProp,deleteSong,getAllSongs,getSongByArtist}: Props):JSX.Element {
   const [artist, setArtist] = useState<string>('');
   const [shouldDisplayBackButton, setShouldDisplayBackButton] = useState<boolean>(false);
   const navigate = useNavigate()
   useEffect(() => {
-    getAllSongs()
+    getAllSongs();
   }, [])
+
   const tableCellsArr: string[] = ['title', 'artist', 'genre', 'length', 'price']
   return (
     <>
@@ -55,7 +57,7 @@ export default function SongsLandingPage({songsProp,getAllSongs,deleteSong,getSo
         </IconButton>
       </TableContainer>
       {
-        shouldDisplayBackButton && <BackButton />
+        shouldDisplayBackButton && <BackButton navigateTo='/'></BackButton>
       }</>
   );
 }
