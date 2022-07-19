@@ -8,7 +8,8 @@ import  type{ } from 'redux-thunk/extend-redux'
 import { useDispatch } from 'react-redux'
 import { SongModel } from '../models/SongModel'
 import { addSongThunk, deleteSongThunk, editSongThunk, getAllSongsThunk, getSongByArtistThunk } from '../api/songs.api'
-import { redurcerSong } from '../store/reducer/song'
+import { redurcerSong } from '../store/reducer/songReducer'
+
 
 export default function Routers() {
   const dispatch = useDispatch();
