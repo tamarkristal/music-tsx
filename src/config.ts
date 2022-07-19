@@ -1,0 +1,1 @@
+export const GET_SONGS_URL:string = 'http://localhost:8080/songs';

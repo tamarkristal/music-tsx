@@ -16,7 +16,6 @@ declare global {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
   }
 }
-export type RootState = ReturnType<typeof store.getState>;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export type AppDispatch = typeof store.dispatch

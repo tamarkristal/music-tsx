@@ -1,4 +1,5 @@
 import axios from "axios"
+import { GET_SONGS_URL } from "../config";
 import { SongModel } from "../models/SongModel";
 import { addSongDis, deleteSongDis, editSongDis, getSongsDis } from "../store/action/song";
 
@@ -8,7 +9,7 @@ export const addSongThunk = (song: SongModel) => {
     return async (dispatch: any) => {
         try {
          
-            const res = await axios.post('http://localhost:8080/songs', song, {
+            const res = await axios.post(GET_SONGS_URL, song, {
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
@@ -24,7 +25,7 @@ export const addSongThunk = (song: SongModel) => {
 export const getAllSongsThunk = () => {
     return async (dispatch: any) => {
         try {
-            const res = await axios.get('http://localhost:8080/songs');
+            const res = await axios.get(GET_SONGS_URL);
             
             dispatch(getSongsDis(res.data));
         }
@@ -36,7 +37,7 @@ export const getAllSongsThunk = () => {
 export const getSongByArtistThunk = (artist: string) => {
     return async (dispatch: any) => {
         try {
-            const res = await axios.get(`http://localhost:8080/songs/Artist/${artist}`);
+            const res = await axios.get(GET_SONGS_URL+`/Artist/${artist}`);
             dispatch(getSongsDis(res.data));
         }
         catch (err) {
@@ -47,7 +48,7 @@ export const getSongByArtistThunk = (artist: string) => {
 export const deleteSongThunk = (id: string) => {
     return async (dispatch: any) => {
         try {
-            await axios.delete(`http://localhost:8080/songs/${id}`, {
+            await axios.delete(GET_SONGS_URL+`/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
@@ -63,7 +64,7 @@ export const deleteSongThunk = (id: string) => {
 export const editSongThunk = (song: SongModel, id: string) => {
     return async (dispatch: any) => {
         try {
-            await axios.put(`http://localhost:8080/songs/${id}`, song,{
+            await axios.put(GET_SONGS_URL+`/${id}`, song,{
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
